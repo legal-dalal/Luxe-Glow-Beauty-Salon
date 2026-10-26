@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe & Glow Salon | Premier Beauty & Luxury Spa Experience</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cormorant Garamond (Serif Display) & Plus Jakarta Sans (Sans-serif Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6.5.1 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Tailwind Theme Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pink: '#FDF2F4',          // Primary soft blush canvas
+                            pinksoft: '#FCE7F0',      // Card/accent border pink
+                            pinkmedium: '#F8B4D0',    // Medium rosy tone
+                            rosegold: '#C59B27',      // Primary metallic warm rose-gold
+                            rosegoldhover: '#B38A1E', // Darker rose-gold hover
+                            gold: '#D4AF37',          // Bright luxury gold
+                            goldlight: '#F4E3A1',     // Soft gold glow
+                            cream: '#FFFBF7',         // Warm ultra-light luxury background
+                            softcream: '#FAF5EF',     // Secondary section contrast cream
+                            plum: '#3B121F',          // Ultra-crisp high-contrast main text (Dark Plum)
+                            plumlight: '#5C1D33',     // Muted body text plum
+                            plummuted: '#8C4863',    // Light secondary subtext
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'pink-glow': '0 10px 30px -5px rgba(248, 180, 208, 0.4)',
+                        'gold-glow': '0 10px 25px -5px rgba(212, 175, 55, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Gradient Utilities without Black/Grays */
+        .rosegold-gradient-text {
+            background: linear-gradient(135deg, #C59B27 0%, #E6CA65 50%, #B38A1E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rosegold-gradient-btn {
+            background: linear-gradient(135deg, #C59B27 0%, #D4AF37 50%, #B38A1E 100%);
+        }
+
+        .rosegold-gradient-btn:hover {
+            background: linear-gradient(135deg, #B38A1E 0%, #C59B27 50%, #9E7918 100%);
+        }
+
+        .pink-glass-card {
+            background: rgba(255, 251, 247, 0.92);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-arch-frame {
+            border-radius: 200px 200px 30px 30px;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDF2F4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F8B4D0;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C59B27;
+        }
+    </style>
+</head>
+<body class="font-sans bg-brand-cream text-brand-plum antialiased selection:bg-brand-pinksoft selection:text-brand-plum">
+
+    <!-- ================= 1. STICKY NAVBAR ================= -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-brand-cream/95 backdrop-blur-md border-b border-brand-pinksoft shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border-2 border-brand-rosegold bg-brand-pinksoft flex items-center justify-center text-brand-rosegold text-lg shadow-sm group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold tracking-tight text-brand-plum">LUXE & GLOW</span>
+                    <span class="text-[10px] uppercase tracking-widest text-brand-rosegold font-bold -mt-1">Beauty Salon & Spa</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-sm text-brand-plum">
+                <a href="#home" class="hover:text-brand-rosegold transition-colors">Home</a>
+                <a href="#about" class="hover:text-brand-rosegold transition-colors">About Us</a>
+                <a href="#services" class="hover:text-brand-rosegold transition-colors">Services</a>
+                <a href="#gallery" class="hover:text-brand-rosegold transition-colors">Portfolio</a>
+                <a href="#pricing" class="hover:text-brand-rosegold transition-colors">Packages</a>
+                <a href="#team" class="hover:text-brand-rosegold transition-colors">Stylists</a>
+                <a href="#reviews" class="hover:text-brand-rosegold transition-colors">Reviews</a>
+                <a href="#contact" class="hover:text-brand-rosegold transition-colors">Contact</a>
+            </nav>
+
+            <!-- Navbar Action Button -->
+            <div class="hidden sm:flex items-center gap-4">
+                <button onclick="openBookingModal()" class="rosegold-gradient-btn text-white px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-pink-glow transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-sparkles"></i>
+                    <span>Book Appointment</span>
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="lg:hidden w-10 h-10 rounded-xl bg-brand-pinksoft text-brand-plum flex items-center justify-center text-xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileDrawer" class="hidden lg:hidden bg-brand-cream border-b border-brand-pinksoft px-6 py-6 space-y-4 shadow-xl">
+            <nav class="flex flex-col gap-3 font-semibold text-base text-brand-plum">
+                <a href="#home" onclick="toggleMobileMenu()" class="hover:text-brand-rosegold py-1">Home</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="hover:text-brand-rosegold py-1">About Us</a>
+                <a href="#services" onclick="toggleMobileMenu()" class="hover:text-brand-rosegold py-1">Services Menu</a>
+                <a href="#gallery" onclick="toggleMobileMenu()" class="hover:text-brand-rosegold py-1">Portfolio Gallery</a>
+                <a href="#pricing" onclick="toggleMobileMenu()" class="hover:text-brand-rosegold py-1">Packages & Passes</a>
+                <a href="#team" onclick="toggleMobileMenu()" class="hover:text-brand-rosegold py-1">Expert Team</a>
+                <a href="#reviews" onclick="toggleMobileMenu()" class="hover:text-brand-rosegold py-1">Client Reviews</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-brand-rosegold py-1">Contact & Map</a>
+            </nav>
+            <div class="pt-4 border-t border-brand-pinksoft">
+                <button onclick="toggleMobileMenu(); openBookingModal()" class="w-full rosegold-gradient-btn text-white py-3 rounded-full font-bold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Book Appointment</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 2. HERO SECTION ================= -->
+    <section id="home" class="relative min-h-screen pt-28 pb-16 flex items-center bg-gradient-to-br from-brand-pink via-brand-cream to-brand-pinksoft overflow-hidden">
+        
+        <!-- Soft Ambient Background Glows -->
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-brand-pinkmedium/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-20 w-96 h-96 bg-brand-goldlight/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Content Column -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    
+                    <!-- Rating Pill -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-rosegold/30 bg-white/90 text-brand-plum text-xs sm:text-sm font-semibold shadow-sm backdrop-blur-md">
+                        <div class="flex text-amber-500 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-brand-plum font-bold">4.9 / 5.0</span>
+                        <span class="text-brand-rosegold font-bold uppercase tracking-wider text-[11px] sm:text-xs">| Voted #1 Luxury Salon & Spa</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-brand-plum leading-[1.12] tracking-tight">
+                        Elevate Your Natural <br class="hidden sm:inline">
+                        <span class="rosegold-gradient-text italic font-normal">Beauty & Radiance</span>
+                    </h1>
+
+                    <!-- Body Subtext -->
+                    <p class="text-brand-plumlight text-base sm:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl">
+                        Step into our serene blush sanctuary for bespoke hair design, dermatological skin therapies, couture bridal glam, and organic wellness spa treatments.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <button onclick="openBookingModal()" class="rosegold-gradient-btn text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-pink-glow transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3 text-base">
+                            <i class="fa-solid fa-sparkles"></i>
+                            <span>Book Appointment Now</span>
+                        </button>
+
+                        <a href="#services" class="bg-white hover:bg-brand-pinksoft/50 border-2 border-brand-rosegold/40 text-brand-plum px-8 py-4 rounded-full font-semibold transition-all shadow-sm flex items-center justify-center gap-2 hover:border-brand-rosegold text-base">
+                            <span>View Hair & Beauty Services</span>
+                            <i class="fa-solid fa-arrow-right text-xs text-brand-rosegold"></i>
+                        </a>
+                    </div>
+
+                    <!-- Social Proof / Trust Metrics -->
+                    <div class="pt-6 border-t border-brand-pinksoft/80 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 bg-white/80 p-3 rounded-2xl border border-brand-pinksoft backdrop-blur-sm">
+                            <div class="flex -space-x-2.5 overflow-hidden">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Client 1">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Client 2">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80" alt="Client 3">
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold text-brand-plum">10,000+ Happy Guests</div>
+                                <div class="text-[11px] text-brand-plummuted font-semibold">100% Certified Care</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white/80 p-3 rounded-2xl border border-brand-pinksoft backdrop-blur-sm">
+                            <div class="w-10 h-10 rounded-xl bg-brand-pinksoft text-brand-rosegold flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold text-brand-plum">Live Salon Status</div>
+                                <div class="text-[11px] text-emerald-700 font-bold flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    <span>• Slots Open Today</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Visual Column (Arched Image & Floating Badges) -->
+                <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+                    
+                    <div class="relative w-full max-w-md">
+                        <!-- Decorative Glow Ring -->
+                        <div class="absolute -inset-4 bg-gradient-to-tr from-brand-pinksoft via-brand-rosegold/20 to-brand-goldlight rounded-[200px] blur-xl opacity-80"></div>
+                        
+                        <!-- Main Arched Image Frame -->
+                        <div class="relative hero-arch-frame overflow-hidden border-4 border-white shadow-2xl bg-white">
+                            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Luxury Salon Spa Interior" class="w-full h-[480px] sm:h-[540px] object-cover hover:scale-105 transition-transform duration-700">
+                            
+                            <!-- Soft Gradient Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-plum/40 via-transparent to-transparent"></div>
+                        </div>
+
+                        <!-- Floating Badge 1 (Top Right) -->
+                        <div class="absolute -top-4 -right-2 sm:-right-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-brand-pinksoft flex items-center gap-3 animate-float">
+                            <div class="w-10 h-10 rounded-xl bg-brand-pinksoft text-brand-rosegold flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold text-brand-plum">Exclusive VIP Suite</div>
+                                <div class="text-[10px] text-brand-plummuted font-medium">Private Pampering Rooms</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 (Bottom Left) -->
+                        <div class="absolute -bottom-6 -left-2 sm:-left-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-brand-pinksoft max-w-[240px]">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-brand-rosegold animate-ping"></span>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-rosegold">Instant Slot Booking</span>
+                            </div>
+                            <p class="text-xs text-brand-plum font-semibold">Festive Glow & Spa Passes Available Now</p>
+                            <button onclick="openBookingModal()" class="mt-2.5 text-xs font-bold text-brand-rosegold hover:underline inline-flex items-center gap-1">
+                                <span>Reserve Slot</span>
+                                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. ABOUT US & HYGIENE SECTION ================= -->
+    <section id="about" class="py-24 bg-brand-softcream relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Image Collage -->
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Master Stylist at work" class="rounded-3xl shadow-lg object-cover h-64 sm:h-80 w-full transform -translate-y-4 border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80" alt="Organic Skin Treatment" class="rounded-3xl shadow-lg object-cover h-64 sm:h-80 w-full transform translate-y-4 border-4 border-white">
+                    </div>
+                    
+                    <!-- Floating Quote Badge -->
+                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white text-brand-plum p-5 rounded-2xl shadow-xl border border-brand-pinksoft text-center w-5/6 sm:w-3/4">
+                        <i class="fa-solid fa-quote-left text-brand-rosegold text-xl mb-1 block"></i>
+                        <p class="font-serif text-base sm:text-lg text-brand-plum italic">"Beauty is an empowering ritual, not just a routine."</p>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="pt-6 lg:pt-0">
+                    <span class="text-brand-rosegold font-bold text-xs uppercase tracking-widest block mb-2">Welcome to Luxe & Glow</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-plum mb-6 leading-tight">
+                        Redefining Hair Artistry, Skincare & Luxury Spa Wellness
+                    </h2>
+                    <p class="text-brand-plumlight leading-relaxed mb-6 font-normal">
+                        Founded with a mission to deliver world-class aesthetic care in a tranquil blush setting, Luxe & Glow combines advanced dermatological techniques with rich spa rituals. We prioritize your comfort, hygiene, and natural elegance.
+                    </p>
+                    
+                    <!-- 4 Key Highlights Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+                        <div class="flex items-start gap-4 p-3 rounded-2xl bg-white border border-brand-pinksoft shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-brand-pinksoft text-brand-rosegold flex items-center justify-center shrink-0 text-xl font-bold">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-plum text-sm">100% Organic Care</h4>
+                                <p class="text-xs text-brand-plummuted mt-0.5">Cruelty-free, safe & chemical-free organic products.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-3 rounded-2xl bg-white border border-brand-pinksoft shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-brand-pinksoft text-brand-rosegold flex items-center justify-center shrink-0 text-xl font-bold">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-plum text-sm">Master Stylists</h4>
+                                <p class="text-xs text-brand-plummuted mt-0.5">Internationally certified hair & makeup directors.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-3 rounded-2xl bg-white border border-brand-pinksoft shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-brand-pinksoft text-brand-rosegold flex items-center justify-center shrink-0 text-xl font-bold">
+                                <i class="fa-solid fa-pump-soap"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-plum text-sm">Strict Hygiene</h4>
+                                <p class="text-xs text-brand-plummuted mt-0.5">Single-use kits and medical-grade tool sterilization.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-3 rounded-2xl bg-white border border-brand-pinksoft shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-brand-pinksoft text-brand-rosegold flex items-center justify-center shrink-0 text-xl font-bold">
+                                <i class="fa-solid fa-champagne-glasses"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-plum text-sm">VIP Lounge</h4>
+                                <p class="text-xs text-brand-plummuted mt-0.5">Complimentary organic teas, juices & lounge suites.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#services" class="inline-flex items-center gap-2 font-bold text-brand-rosegold hover:text-brand-plum transition-colors">
+                        <span>Explore Our Signature Treatment Menu</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. INTERACTIVE SERVICES MENU SECTION ================= -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-rosegold font-bold text-xs uppercase tracking-widest block mb-2">Our Signature Menu</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-plum">Tailored Beauty & Spa Services</h2>
+                <div class="w-20 h-1 bg-brand-rosegold/40 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Service Category Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+                <button onclick="filterServices('all')" class="service-tab-btn active px-5 py-2.5 rounded-full border border-brand-rosegold bg-brand-rosegold text-white font-bold text-xs sm:text-sm transition-all shadow-sm">All Services</button>
+                <button onclick="filterServices('hair')" class="service-tab-btn px-5 py-2.5 rounded-full border border-brand-pinksoft bg-brand-pink text-brand-plum font-bold text-xs sm:text-sm hover:border-brand-rosegold transition-all shadow-sm">Hair Care</button>
+                <button onclick="filterServices('skin')" class="service-tab-btn px-5 py-2.5 rounded-full border border-brand-pinksoft bg-brand-pink text-brand-plum font-bold text-xs sm:text-sm hover:border-brand-rosegold transition-all shadow-sm">Skincare & Facials</button>
+                <button onclick="filterServices('bridal')" class="service-tab-btn px-5 py-2.5 rounded-full border border-brand-pinksoft bg-brand-pink text-brand-plum font-bold text-xs sm:text-sm hover:border-brand-rosegold transition-all shadow-sm">Bridal & Glam</button>
+                <button onclick="filterServices('nails')" class="service-tab-btn px-5 py-2.5 rounded-full border border-brand-pinksoft bg-brand-pink text-brand-plum font-bold text-xs sm:text-sm hover:border-brand-rosegold transition-all shadow-sm">Nail Extensions</button>
+                <button onclick="filterServices('spa')" class="service-tab-btn px-5 py-2.5 rounded-full border border-brand-pinksoft bg-brand-pink text-brand-plum font-bold text-xs sm:text-sm hover:border-brand-rosegold transition-all shadow-sm">Spa & Massage</button>
+            </div>
+
+            <!-- Service Cards Grid (8 Detailed Services) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Hair -->
+                <div class="service-card hair group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Hair Styling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 right-4 bg-white/95 text-brand-rosegold text-xs font-bold px-3 py-1 rounded-full shadow-sm">60 Mins</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-serif text-2xl font-bold text-brand-plum">Couture Haircut & Balayage</h3>
+                                <span class="text-xl font-bold text-brand-rosegold">₹2,499</span>
+                            </div>
+                            <p class="text-brand-plumlight text-xs sm:text-sm leading-relaxed mb-4">
+                                Personal style consultation, precision cut, custom dimensional balayage highlights, and blow-dry styling.
+                            </p>
+                            <ul class="space-y-1.5 text-xs text-brand-plummuted mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Ammonia-free hair color</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Deep gloss shine finish</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openBookingModal('Couture Haircut & Balayage')" class="w-full py-3 rounded-xl border border-brand-rosegold text-brand-rosegold font-bold text-xs group-hover:bg-brand-rosegold group-hover:text-white transition-all flex items-center justify-center gap-2">
+                            <span>Book This Service</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 2: Skin -->
+                <div class="service-card skin group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Radiance Facial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 right-4 bg-white/95 text-brand-rosegold text-xs font-bold px-3 py-1 rounded-full shadow-sm">75 Mins</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-serif text-2xl font-bold text-brand-plum">24K Gold Hydra Radiance</h3>
+                                <span class="text-xl font-bold text-brand-rosegold">₹3,299</span>
+                            </div>
+                            <p class="text-brand-plumlight text-xs sm:text-sm leading-relaxed mb-4">
+                                Deep pore vacuum exfoliation, hyaluronic acid infusion, and 24K pure gold leaf mask for glass skin glow.
+                            </p>
+                            <ul class="space-y-1.5 text-xs text-brand-plummuted mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Instant pigment brightening</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Lymphatic face massage</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openBookingModal('24K Gold Hydra Radiance')" class="w-full py-3 rounded-xl border border-brand-rosegold text-brand-rosegold font-bold text-xs group-hover:bg-brand-rosegold group-hover:text-white transition-all flex items-center justify-center gap-2">
+                            <span>Book This Service</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 3: Bridal -->
+                <div class="service-card bridal group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80" alt="Bridal Makeup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 right-4 bg-white/95 text-brand-rosegold text-xs font-bold px-3 py-1 rounded-full shadow-sm">120 Mins</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-serif text-2xl font-bold text-brand-plum">HD Airbrush Bridal Glam</h3>
+                                <span class="text-xl font-bold text-brand-rosegold">₹9,999</span>
+                            </div>
+                            <p class="text-brand-plumlight text-xs sm:text-sm leading-relaxed mb-4">
+                                Ultra-longstay waterproof HD Airbrush makeup, luxury lash extensions, hair sculpting, and saree draping.
+                            </p>
+                            <ul class="space-y-1.5 text-xs text-brand-plummuted mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Pre-bridal consultation included</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Luxury touchup kit provided</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openBookingModal('HD Airbrush Bridal Glam')" class="w-full py-3 rounded-xl border border-brand-rosegold text-brand-rosegold font-bold text-xs group-hover:bg-brand-rosegold group-hover:text-white transition-all flex items-center justify-center gap-2">
+                            <span>Book This Service</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 4: Nails -->
+                <div class="service-card nails group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80" alt="Nail Extension Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 right-4 bg-white/95 text-brand-rosegold text-xs font-bold px-3 py-1 rounded-full shadow-sm">60 Mins</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-serif text-2xl font-bold text-brand-plum">Acrylic Extensions & 3D Art</h3>
+                                <span class="text-xl font-bold text-brand-rosegold">₹1,899</span>
+                            </div>
+                            <p class="text-brand-plumlight text-xs sm:text-sm leading-relaxed mb-4">
+                                Full set gel/acrylic tip extensions with custom chrome polish, French tip styling, and 3D embellishments.
+                            </p>
+                            <ul class="space-y-1.5 text-xs text-brand-plummuted mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Non-damaging gel base</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> 4+ Weeks durability</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openBookingModal('Acrylic Extensions & 3D Art')" class="w-full py-3 rounded-xl border border-brand-rosegold text-brand-rosegold font-bold text-xs group-hover:bg-brand-rosegold group-hover:text-white transition-all flex items-center justify-center gap-2">
+                            <span>Book This Service</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 5: Spa -->
+                <div class="service-card spa group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Spa Therapy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 right-4 bg-white/95 text-brand-rosegold text-xs font-bold px-3 py-1 rounded-full shadow-sm">90 Mins</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-serif text-2xl font-bold text-brand-plum">Aromatherapy Spa Body Therapy</h3>
+                                <span class="text-xl font-bold text-brand-rosegold">₹3,499</span>
+                            </div>
+                            <p class="text-brand-plumlight text-xs sm:text-sm leading-relaxed mb-4">
+                                Full body Swedish stress-relief massage infused with essential lavender oils, hot towel wrap & detox herbal tea.
+                            </p>
+                            <ul class="space-y-1.5 text-xs text-brand-plummuted mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Private luxury suite</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Deep muscle tension relief</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openBookingModal('Aromatherapy Spa Body Therapy')" class="w-full py-3 rounded-xl border border-brand-rosegold text-brand-rosegold font-bold text-xs group-hover:bg-brand-rosegold group-hover:text-white transition-all flex items-center justify-center gap-2">
+                            <span>Book This Service</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 6: Hair Keratin -->
+                <div class="service-card hair group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80" alt="Keratin Treatment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 right-4 bg-white/95 text-brand-rosegold text-xs font-bold px-3 py-1 rounded-full shadow-sm">120 Mins</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-serif text-2xl font-bold text-brand-plum">Brazilian Keratin Smoothing</h3>
+                                <span class="text-xl font-bold text-brand-rosegold">₹4,999</span>
+                            </div>
+                            <p class="text-brand-plumlight text-xs sm:text-sm leading-relaxed mb-4">
+                                Intensive protein repair treatment that eliminates frizz, restores mirror shine, and leaves hair silky smooth for months.
+                            </p>
+                            <ul class="space-y-1.5 text-xs text-brand-plummuted mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Formaldehyde-free formula</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-rosegold text-[10px]"></i> Includes post-care shampoo kit</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openBookingModal('Brazilian Keratin Smoothing')" class="w-full py-3 rounded-xl border border-brand-rosegold text-brand-rosegold font-bold text-xs group-hover:bg-brand-rosegold group-hover:text-white transition-all flex items-center justify-center gap-2">
+                            <span>Book This Service</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 5. FILTERABLE GALLERY & PORTFOLIO ================= -->
+    <section id="gallery" class="py-24 bg-brand-pink">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-rosegold font-bold text-xs uppercase tracking-widest block mb-2">Our Portfolio</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-plum">Real Client Transformations</h2>
+                <p class="text-brand-plumlight mt-3 text-sm">Explore our master artistry across hair styling, makeup, and nail design.</p>
+            </div>
+
+            <!-- Gallery Category Filters -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+                <button onclick="filterGallery('all')" class="gallery-tab-btn active px-5 py-2 rounded-full border border-brand-rosegold bg-brand-rosegold text-white font-bold text-xs transition-all shadow-sm">All Work</button>
+                <button onclick="filterGallery('hair')" class="gallery-tab-btn px-5 py-2 rounded-full border border-brand-pinksoft bg-white text-brand-plum font-bold text-xs hover:border-brand-rosegold transition-all shadow-sm">Hair Styling</button>
+                <button onclick="filterGallery('makeup')" class="gallery-tab-btn px-5 py-2 rounded-full border border-brand-pinksoft bg-white text-brand-plum font-bold text-xs hover:border-brand-rosegold transition-all shadow-sm">Glam Makeup</button>
+                <button onclick="filterGallery('nails')" class="gallery-tab-btn px-5 py-2 rounded-full border border-brand-pinksoft bg-white text-brand-plum font-bold text-xs hover:border-brand-rosegold transition-all shadow-sm">Nail Art</button>
+                <button onclick="filterGallery('glow')" class="gallery-tab-btn px-5 py-2 rounded-full border border-brand-pinksoft bg-white text-brand-plum font-bold text-xs hover:border-brand-rosegold transition-all shadow-sm">Facial Glow</button>
+            </div>
+
+            <!-- Gallery Image Grid with Lightbox Zoom Trigger -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="gallery-card hair relative group overflow-hidden rounded-3xl h-80 shadow-md cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80', 'Golden Balayage Wave')">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Balayage Wave" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-plum/85 via-brand-plum/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div class="w-full flex justify-between items-end">
+                            <div>
+                                <span class="text-brand-pinksoft text-[10px] uppercase tracking-widest font-bold block">Hair Design</span>
+                                <h4 class="text-white text-lg font-serif font-bold">Golden Balayage Wave</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-white/90 text-brand-plum flex items-center justify-center text-sm shadow-md">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card makeup relative group overflow-hidden rounded-3xl h-80 shadow-md cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80', 'Royal Bridal Airbrush Glam')">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80" alt="Bridal Glam" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-plum/85 via-brand-plum/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div class="w-full flex justify-between items-end">
+                            <div>
+                                <span class="text-brand-pinksoft text-[10px] uppercase tracking-widest font-bold block">Bridal Glam</span>
+                                <h4 class="text-white text-lg font-serif font-bold">Royal Velvet Bridal Look</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-white/90 text-brand-plum flex items-center justify-center text-sm shadow-md">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card nails relative group overflow-hidden rounded-3xl h-80 shadow-md cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=1200&q=80', 'Rose Gold Chrome Acrylic Nails')">
+                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=800&q=80" alt="Chrome Nails" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-plum/85 via-brand-plum/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div class="w-full flex justify-between items-end">
+                            <div>
+                                <span class="text-brand-pinksoft text-[10px] uppercase tracking-widest font-bold block">Nail Extensions</span>
+                                <h4 class="text-white text-lg font-serif font-bold">Rose Gold Chrome Nails</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-white/90 text-brand-plum flex items-center justify-center text-sm shadow-md">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card glow relative group overflow-hidden rounded-3xl h-80 shadow-md cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80', '24K Gold Hydra Glow Facial')">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Gold Facial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-plum/85 via-brand-plum/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div class="w-full flex justify-between items-end">
+                            <div>
+                                <span class="text-brand-pinksoft text-[10px] uppercase tracking-widest font-bold block">Skin Care</span>
+                                <h4 class="text-white text-lg font-serif font-bold">24K Gold Hydra Glow</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-white/90 text-brand-plum flex items-center justify-center text-sm shadow-md">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card hair relative group overflow-hidden rounded-3xl h-80 shadow-md cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1200&q=80', 'Sleek Precision Bob & Gloss')">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80" alt="Sleek Bob Cut" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-plum/85 via-brand-plum/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div class="w-full flex justify-between items-end">
+                            <div>
+                                <span class="text-brand-pinksoft text-[10px] uppercase tracking-widest font-bold block">Hair Couture</span>
+                                <h4 class="text-white text-lg font-serif font-bold">Sleek Precision Bob</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-white/90 text-brand-plum flex items-center justify-center text-sm shadow-md">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card makeup relative group overflow-hidden rounded-3xl h-80 shadow-md cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80', 'Smokey Eyes & Nude Glam')">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80" alt="Evening Glam" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-plum/85 via-brand-plum/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div class="w-full flex justify-between items-end">
+                            <div>
+                                <span class="text-brand-pinksoft text-[10px] uppercase tracking-widest font-bold block">Evening Glam</span>
+                                <h4 class="text-white text-lg font-serif font-bold">Smokey Eyes & Nude Glow</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-white/90 text-brand-plum flex items-center justify-center text-sm shadow-md">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Zoom Modal for Portfolio -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-brand-plum/80 backdrop-blur-md" onclick="closeLightbox()">
+        <div class="relative max-w-4xl w-full bg-white p-3 rounded-3xl shadow-2xl border border-brand-pinksoft" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-brand-rosegold text-white flex items-center justify-center text-lg shadow-lg z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightboxImage" src="" alt="Portfolio Preview" class="w-full h-[70vh] object-cover rounded-2xl">
+            <div class="p-4 text-center">
+                <h3 id="lightboxCaption" class="font-serif text-2xl font-bold text-brand-plum"></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 6. PRICING & MEMBERSHIP PACKAGES ================= -->
+    <section id="pricing" class="py-24 bg-gradient-to-b from-brand-cream to-brand-softcream relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-rosegold font-bold text-xs uppercase tracking-widest block mb-2">Special Combo Deals</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-plum">Exclusive Pamper Packages</h2>
+                <p class="text-brand-plumlight mt-3 text-sm">Save up to 35% with our curated beauty packages & annual passes.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Package 1: Glow Essential -->
+                <div class="bg-white p-8 rounded-3xl border border-brand-pinksoft flex flex-col justify-between hover:border-brand-rosegold transition-all shadow-md">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-rosegold bg-brand-pinksoft px-3 py-1 rounded-full">Essential Pamper</span>
+                        <h3 class="font-serif text-2xl font-bold mt-4 text-brand-plum">Glow Essential Pass</h3>
+                        <div class="my-6">
+                            <span class="text-4xl font-serif font-bold text-brand-plum">₹2,999</span>
+                            <span class="text-xs text-brand-plummuted line-through ml-2">₹4,500</span>
+                        </div>
+                        <ul class="space-y-3 text-xs sm:text-sm text-brand-plumlight border-t border-brand-pinksoft pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold"></i> Radiance Herbal Facial</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold"></i> Organic Hair Spa & Blowdry</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold"></i> Deluxe Pedicure & Manicure</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold"></i> Threading & Upperlip Polish</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Glow Essential Pass')" class="w-full mt-8 py-3.5 rounded-full border-2 border-brand-rosegold text-brand-rosegold font-bold text-xs hover:bg-brand-rosegold hover:text-white transition-all">Claim Package</button>
+                </div>
+
+                <!-- Package 2: Bridal Luxury Bliss (Highlighted) -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-brand-rosegold shadow-xl relative flex flex-col justify-between transform md:-translate-y-4">
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 rosegold-gradient-btn text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md">Most Popular Choice</span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-rosegold">Ultimate Bridal Care</span>
+                        <h3 class="font-serif text-3xl font-bold mt-4 rosegold-gradient-text">Bridal Luxury Bliss</h3>
+                        <div class="my-6">
+                            <span class="text-4xl font-serif font-bold text-brand-plum">₹14,999</span>
+                            <span class="text-xs text-brand-plummuted line-through ml-2">₹22,000</span>
+                        </div>
+                        <ul class="space-y-3 text-xs sm:text-sm text-brand-plumlight border-t border-brand-pinksoft pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold font-bold"></i> HD Airbrush Bridal Makeup</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold font-bold"></i> Pre-Bridal Gold Skin & Hair Therapy</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold font-bold"></i> 3D Acrylic Gel Nail Art & Extensions</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold font-bold"></i> Full Body Detox Scrub & Aroma Spa</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold font-bold"></i> Free Groom Touchup Service</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Bridal Luxury Bliss Package')" class="w-full mt-8 py-3.5 rounded-full rosegold-gradient-btn text-white font-bold text-xs shadow-md hover:shadow-pink-glow transition-all">Claim Package</button>
+                </div>
+
+                <!-- Package 3: Royal VIP Membership -->
+                <div class="bg-white p-8 rounded-3xl border border-brand-pinksoft flex flex-col justify-between hover:border-brand-rosegold transition-all shadow-md">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-rosegold bg-brand-pinksoft px-3 py-1 rounded-full">VIP Club Pass</span>
+                        <h3 class="font-serif text-2xl font-bold mt-4 text-brand-plum">Royal VIP Membership</h3>
+                        <div class="my-6">
+                            <span class="text-4xl font-serif font-bold text-brand-plum">₹4,999</span>
+                            <span class="text-xs text-brand-plummuted">/ Month</span>
+                        </div>
+                        <ul class="space-y-3 text-xs sm:text-sm text-brand-plumlight border-t border-brand-pinksoft pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold"></i> 2 Free Hair Spas Per Month</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold"></i> Unlimited Hair Blowdry & Styling</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold"></i> 25% Off All Facial & Spa Treatments</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rosegold"></i> Priority Suite Slot Reservations</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Royal VIP Membership Pass')" class="w-full mt-8 py-3.5 rounded-full border-2 border-brand-rosegold text-brand-rosegold font-bold text-xs hover:bg-brand-rosegold hover:text-white transition-all">Claim Package</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 7. EXPERT STYLISTS & ARTISTS TEAM ================= -->
+    <section id="team" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-rosegold font-bold text-xs uppercase tracking-widest block mb-2">Master Artists</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-plum">Meet Our Senior Team</h2>
+                <p class="text-brand-plumlight mt-3 text-sm">Passionate, internationally trained beauty directors at your service.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Stylist 1 -->
+                <div class="group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft text-center hover:shadow-xl transition-all">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80" alt="Sophia Kapoor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-brand-plum">Sophia Kapoor</h3>
+                        <p class="text-[11px] text-brand-rosegold font-bold uppercase tracking-wider mt-1">Creative Hair Director</p>
+                        <p class="text-xs text-brand-plummuted mt-2">12+ years experience in Paris & Mumbai runway hair styling.</p>
+                        <button onclick="openBookingModal('Hair Styling', 'Sophia Kapoor')" class="mt-4 w-full py-2 rounded-full border border-brand-rosegold/50 text-brand-plum text-xs font-bold hover:bg-brand-rosegold hover:text-white transition-all">
+                            Book with Sophia
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stylist 2 -->
+                <div class="group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft text-center hover:shadow-xl transition-all">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Ananya Verma" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-brand-plum">Ananya Verma</h3>
+                        <p class="text-[11px] text-brand-rosegold font-bold uppercase tracking-wider mt-1">Lead Bridal Artist</p>
+                        <p class="text-xs text-brand-plummuted mt-2">Specialist in HD Airbrush makeup & celebrity bridal looks.</p>
+                        <button onclick="openBookingModal('Bridal & Glam Makeup', 'Ananya Verma')" class="mt-4 w-full py-2 rounded-full border border-brand-rosegold/50 text-brand-plum text-xs font-bold hover:bg-brand-rosegold hover:text-white transition-all">
+                            Book with Ananya
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stylist 3 -->
+                <div class="group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft text-center hover:shadow-xl transition-all">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Maya Sharma" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-brand-plum">Maya Sharma</h3>
+                        <p class="text-[11px] text-brand-rosegold font-bold uppercase tracking-wider mt-1">Dermal & Spa Therapist</p>
+                        <p class="text-xs text-brand-plummuted mt-2">Certified aesthetician in organic hydra glow & anti-aging care.</p>
+                        <button onclick="openBookingModal('Radiance Facials', 'Maya Sharma')" class="mt-4 w-full py-2 rounded-full border border-brand-rosegold/50 text-brand-plum text-xs font-bold hover:bg-brand-rosegold hover:text-white transition-all">
+                            Book with Maya
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stylist 4 -->
+                <div class="group bg-brand-cream rounded-3xl overflow-hidden border border-brand-pinksoft text-center hover:shadow-xl transition-all">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Rahul Roy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-brand-plum">Rahul Roy</h3>
+                        <p class="text-[11px] text-brand-rosegold font-bold uppercase tracking-wider mt-1">Master Nail Technician</p>
+                        <p class="text-xs text-brand-plummuted mt-2">Expert in 3D acrylic extensions, chrome finish & luxury nail art.</p>
+                        <button onclick="openBookingModal('Luxury Nails & Extensions', 'Rahul Roy')" class="mt-4 w-full py-2 rounded-full border border-brand-rosegold/50 text-brand-plum text-xs font-bold hover:bg-brand-rosegold hover:text-white transition-all">
+                            Book with Rahul
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 8. CLIENT REVIEWS SECTION ================= -->
+    <section id="reviews" class="py-24 bg-brand-pink relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-rosegold font-bold text-xs uppercase tracking-widest block mb-2">Verified Reviews</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-plum">Loved By Thousands of Guests</h2>
+                <div class="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded-full bg-white border border-brand-pinksoft shadow-sm">
+                    <i class="fa-brands fa-google text-amber-500 text-sm"></i>
+                    <span class="text-xs font-bold text-brand-plum">4.9 Star Rating on Google Reviews</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-pinksoft flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-brand-plumlight italic text-xs sm:text-sm leading-relaxed mb-6">
+                            "Mera bridal makeup Luxe & Glow me Ananya ji ne kiya tha. Everyone complimented the HD finish so much! The salon ambiance is so luxurious and hygienic."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-brand-pinksoft pt-4">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Priya" class="w-11 h-11 rounded-full object-cover border-2 border-brand-pinksoft">
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-plum">Priya Malhotra</h4>
+                            <span class="text-[11px] text-brand-plummuted">Bridal Makeup Client</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-pinksoft flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-brand-plumlight italic text-xs sm:text-sm leading-relaxed mb-6">
+                            "The 24K Gold Hydra-Facial and Keratin smoothing treatment were super soothing! My hair has never felt so silky. Truly the best spa in town."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-brand-pinksoft pt-4">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Sneha" class="w-11 h-11 rounded-full object-cover border-2 border-brand-pinksoft">
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-plum">Sneha Roy</h4>
+                            <span class="text-[11px] text-brand-plummuted">Regular VIP Member</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-pinksoft flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-brand-plumlight italic text-xs sm:text-sm leading-relaxed mb-6">
+                            "Rahul did my rose gold chrome acrylic nail extensions. The finish was stunning and lasted for more than 4 weeks without chipping!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-brand-pinksoft pt-4">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80" alt="Kavita" class="w-11 h-11 rounded-full object-cover border-2 border-brand-pinksoft">
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-plum">Kavita Singhania</h4>
+                            <span class="text-[11px] text-brand-plummuted">Nail Art Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 9. CONTACT, LOCATION & HOURS ================= -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Details (7 cols) -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <span class="text-brand-rosegold font-bold text-xs uppercase tracking-widest block mb-2">Visit Our Salon</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-plum">Get In Touch With Us</h2>
+                        <p class="text-brand-plumlight mt-3 text-sm leading-relaxed">
+                            We welcome you to experience luxury pampering. Reserve your spot online or drop by our lounge for a personalized hair & skin consultation.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-cream border border-brand-pinksoft">
+                            <div class="w-12 h-12 rounded-xl bg-brand-pinksoft text-brand-rosegold flex items-center justify-center shrink-0 text-xl font-bold">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-plum text-sm">Salon Address</h4>
+                                <p class="text-xs text-brand-plumlight mt-1">Plot 45, Luxury Avenue, Near City Centre Mall, Bandra West, Mumbai - 400050</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-cream border border-brand-pinksoft">
+                            <div class="w-12 h-12 rounded-xl bg-brand-pinksoft text-brand-rosegold flex items-center justify-center shrink-0 text-xl font-bold">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-plum text-sm">Phone & WhatsApp</h4>
+                                <p class="text-xs text-brand-plumlight mt-1">+91 98765 43210<br>+91 22 8899 7700</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hours Box -->
+                    <div class="p-6 rounded-3xl bg-brand-pink border border-brand-pinksoft">
+                        <h4 class="font-serif text-xl font-bold text-brand-plum mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-brand-rosegold"></i>
+                            <span>Operating Hours</span>
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-medium text-brand-plumlight">
+                            <div>
+                                <span class="font-bold block text-brand-plum">Mon – Fri</span>
+                                <span>10:00 AM – 8:30 PM</span>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-brand-plum">Saturday</span>
+                                <span>09:30 AM – 9:00 PM</span>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-brand-plum">Sunday</span>
+                                <span>10:00 AM – 8:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <button onclick="openBookingModal()" class="rosegold-gradient-btn text-white px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-pink-glow transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Reserve Appointment Slot</span>
+                        </button>
+                        <a href="https://wa.me/919876543210" target="_blank" class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-6 py-3.5 rounded-full font-bold text-xs flex items-center gap-2 hover:bg-emerald-100 transition-colors">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>WhatsApp Us</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Simulated Location Card (5 cols) -->
+                <div class="lg:col-span-5">
+                    <div class="bg-brand-cream p-4 rounded-3xl border border-brand-pinksoft shadow-xl relative overflow-hidden h-[420px] flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=80" alt="Salon Map Location" class="w-full h-full object-cover rounded-2xl">
+                        <div class="absolute inset-0 bg-brand-plum/30 rounded-2xl flex flex-col items-center justify-center text-white p-6 text-center backdrop-blur-[2px]">
+                            <div class="w-16 h-16 rounded-full bg-white text-brand-rosegold flex items-center justify-center text-2xl shadow-lg mb-3 animate-bounce">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold">Luxe & Glow Flagship</h3>
+                            <p class="text-xs text-brand-cream mt-2 max-w-xs">Valet parking available for all guests at the main entrance.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 10. FOOTER ================= -->
+    <footer class="bg-brand-softcream text-brand-plum pt-16 pb-12 border-t border-brand-pinksoft">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-brand-pinksoft">
+                
+                <!-- Col 1: Brand Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full border border-brand-rosegold bg-brand-pinksoft flex items-center justify-center text-brand-rosegold text-xs">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <span class="font-serif text-xl font-bold rosegold-gradient-text">LUXE & GLOW</span>
+                    </div>
+                    <p class="text-xs text-brand-plumlight leading-relaxed mb-6">
+                        Your luxury blush & cream destination for couture hair styling, organic skincare, bridal glam, and holistic spa wellness.
+                    </p>
+                    <div class="flex gap-3 text-brand-rosegold text-xs">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white border border-brand-pinksoft flex items-center justify-center hover:bg-brand-rosegold hover:text-white transition-all shadow-sm"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white border border-brand-pinksoft flex items-center justify-center hover:bg-brand-rosegold hover:text-white transition-all shadow-sm"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white border border-brand-pinksoft flex items-center justify-center hover:bg-brand-rosegold hover:text-white transition-all shadow-sm"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white border border-brand-pinksoft flex items-center justify-center hover:bg-brand-rosegold hover:text-white transition-all shadow-sm"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="font-serif text-base font-bold text-brand-rosegold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-brand-plumlight font-semibold">
+                        <li><a href="#home" class="hover:text-brand-rosegold transition-colors">Home Page</a></li>
+                        <li><a href="#about" class="hover:text-brand-rosegold transition-colors">About Our Salon</a></li>
+                        <li><a href="#services" class="hover:text-brand-rosegold transition-colors">Services & Menu</a></li>
+                        <li><a href="#gallery" class="hover:text-brand-rosegold transition-colors">Portfolio Gallery</a></li>
+                        <li><a href="#pricing" class="hover:text-brand-rosegold transition-colors">Packages & Deals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services Summary -->
+                <div>
+                    <h4 class="font-serif text-base font-bold text-brand-rosegold mb-4">Signature Services</h4>
+                    <ul class="space-y-2 text-xs text-brand-plumlight font-semibold">
+                        <li><a href="#services" class="hover:text-brand-rosegold transition-colors">Couture Balayage & Cuts</a></li>
+                        <li><a href="#services" class="hover:text-brand-rosegold transition-colors">24K Gold Hydra Facial</a></li>
+                        <li><a href="#services" class="hover:text-brand-rosegold transition-colors">HD Airbrush Bridal Glam</a></li>
+                        <li><a href="#services" class="hover:text-brand-rosegold transition-colors">3D Acrylic Nail Extensions</a></li>
+                        <li><a href="#services" class="hover:text-brand-rosegold transition-colors">Aromatherapy Spa Therapy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h4 class="font-serif text-base font-bold text-brand-rosegold mb-4">Newsletter</h4>
+                    <p class="text-xs text-brand-plumlight mb-3">Subscribe for exclusive pampering offers & beauty tips.</p>
+                    <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+                        <input type="email" id="newsletterEmail" required placeholder="Enter your email" class="w-full px-4 py-2.5 rounded-xl bg-white border border-brand-pinksoft text-xs text-brand-plum focus:outline-none focus:border-brand-rosegold shadow-sm">
+                        <button type="submit" class="w-full rosegold-gradient-btn text-white py-2.5 rounded-xl text-xs font-bold shadow-sm">Subscribe Now</button>
+                    </form>
+                    <div id="newsletterSuccess" class="hidden text-[11px] text-emerald-700 font-bold mt-2">
+                        <i class="fa-solid fa-circle-check"></i> Subscribed successfully!
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-xs text-brand-plummuted flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>© 2026 Luxe & Glow Beauty Salon. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                    <a href="#" class="hover:underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= 11. INTERACTIVE APPOINTMENT BOOKING MODAL ================= -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-brand-plum/40 backdrop-blur-md">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-brand-pinksoft relative animate-fade-in">
+            
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-brand-pinksoft via-brand-pink to-brand-cream text-brand-plum p-6 relative border-b border-brand-pinksoft">
+                <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-brand-plumlight hover:text-brand-plum text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="flex items-center gap-2 text-brand-rosegold text-xs font-bold uppercase tracking-widest mb-1">
+                    <i class="fa-solid fa-crown"></i> Online Reservation
+                </div>
+                <h3 class="font-serif text-2xl font-bold">Book Your Pampering Session</h3>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+                
+                <div>
+                    <label class="block text-xs font-bold text-brand-plum mb-1">Full Name *</label>
+                    <input type="text" id="clientName" required placeholder="e.g. Ananya Sharma" class="w-full px-4 py-2.5 rounded-xl border border-brand-pinksoft text-xs sm:text-sm focus:ring-2 focus:ring-brand-rosegold focus:outline-none text-brand-plum">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-brand-plum mb-1">Phone Number *</label>
+                        <input type="tel" id="clientPhone" required placeholder="+91 9876543210" class="w-full px-4 py-2.5 rounded-xl border border-brand-pinksoft text-xs sm:text-sm focus:ring-2 focus:ring-brand-rosegold focus:outline-none text-brand-plum">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-brand-plum mb-1">Email Address</label>
+                        <input type="email" id="clientEmail" placeholder="ananya@example.com" class="w-full px-4 py-2.5 rounded-xl border border-brand-pinksoft text-xs sm:text-sm focus:ring-2 focus:ring-brand-rosegold focus:outline-none text-brand-plum">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-brand-plum mb-1">Select Service *</label>
+                        <select id="serviceSelect" required onchange="updateDynamicPrice()" class="w-full px-4 py-2.5 rounded-xl border border-brand-pinksoft text-xs sm:text-sm focus:ring-2 focus:ring-brand-rosegold focus:outline-none text-brand-plum">
+                            <option value="">Choose Service...</option>
+                            <option value="Couture Haircut & Balayage" data-price="2499">Couture Haircut & Balayage (₹2,499)</option>
+                            <option value="24K Gold Hydra Radiance" data-price="3299">24K Gold Hydra Radiance (₹3,299)</option>
+                            <option value="HD Airbrush Bridal Glam" data-price="9999">HD Airbrush Bridal Glam (₹9,999)</option>
+                            <option value="Acrylic Extensions & 3D Art" data-price="1899">Acrylic Extensions & 3D Art (₹1,899)</option>
+                            <option value="Aromatherapy Spa Body Therapy" data-price="3499">Aromatherapy Spa Body Therapy (₹3,499)</option>
+                            <option value="Brazilian Keratin Smoothing" data-price="4999">Brazilian Keratin Smoothing (₹4,999)</option>
+                            <option value="Glow Essential Pass" data-price="2999">Glow Essential Pass (₹2,999)</option>
+                            <option value="Bridal Luxury Bliss Package" data-price="14999">Bridal Luxury Bliss Package (₹14,999)</option>
+                            <option value="Royal VIP Membership Pass" data-price="4999">Royal VIP Membership Pass (₹4,999)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-brand-plum mb-1">Select Stylist</label>
+                        <select id="stylistSelect" class="w-full px-4 py-2.5 rounded-xl border border-brand-pinksoft text-xs sm:text-sm focus:ring-2 focus:ring-brand-rosegold focus:outline-none text-brand-plum">
+                            <option value="Any Available Master Artist">Any Available Master Artist</option>
+                            <option value="Sophia Kapoor">Sophia Kapoor (Hair Director)</option>
+                            <option value="Ananya Verma">Ananya Verma (Bridal Specialist)</option>
+                            <option value="Maya Sharma">Maya Sharma (Dermal Specialist)</option>
+                            <option value="Rahul Roy">Rahul Roy (Nail Master)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-brand-plum mb-1">Preferred Date *</label>
+                        <input type="date" id="bookingDate" required class="w-full px-4 py-2.5 rounded-xl border border-brand-pinksoft text-xs sm:text-sm focus:ring-2 focus:ring-brand-rosegold focus:outline-none text-brand-plum">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-brand-plum mb-1">Time Slot *</label>
+                        <select id="bookingTime" required class="w-full px-4 py-2.5 rounded-xl border border-brand-pinksoft text-xs sm:text-sm focus:ring-2 focus:ring-brand-rosegold focus:outline-none text-brand-plum">
+                            <option value="">Select Slot...</option>
+                            <option value="10:30 AM">10:30 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="02:30 PM">02:30 PM</option>
+                            <option value="04:30 PM">04:30 PM</option>
+                            <option value="06:30 PM">06:30 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-brand-plum mb-1">Special Requests or Notes</label>
+                    <textarea id="specialNotes" rows="2" placeholder="Mention allergies, hair length, or specific preferences..." class="w-full px-4 py-2.5 rounded-xl border border-brand-pinksoft text-xs sm:text-sm focus:ring-2 focus:ring-brand-rosegold focus:outline-none text-brand-plum"></textarea>
+                </div>
+
+                <!-- Dynamic Price Calculation Badge -->
+                <div class="p-3 rounded-2xl bg-brand-pink flex justify-between items-center border border-brand-pinksoft">
+                    <span class="text-xs font-bold text-brand-plum">Estimated Total:</span>
+                    <span id="dynamicPriceDisplay" class="text-lg font-serif font-bold text-brand-rosegold">₹0</span>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full rosegold-gradient-btn text-white py-3.5 rounded-xl font-bold shadow-md text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Confirm Appointment</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Animated Success Confirmation Screen -->
+            <div id="bookingSuccess" class="hidden p-8 text-center space-y-4">
+                <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto shadow-sm">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-brand-plum">Appointment Confirmed!</h3>
+                
+                <div class="bg-brand-pink p-4 rounded-2xl border border-brand-pinksoft text-left text-xs space-y-2">
+                    <div class="flex justify-between">
+                        <span class="text-brand-plummuted">Booking ID:</span>
+                        <span id="resRefId" class="font-bold text-brand-plum">LG-88291</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-brand-plummuted">Guest Name:</span>
+                        <span id="resGuestName" class="font-bold text-brand-plum"></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-brand-plummuted">Service:</span>
+                        <span id="resService" class="font-bold text-brand-rosegold"></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-brand-plummuted">Date & Time:</span>
+                        <span id="resDateTime" class="font-bold text-brand-plum"></span>
+                    </div>
+                </div>
+
+                <p class="text-xs text-brand-plumlight">
+                    We have sent SMS confirmation & reminder details to your mobile number.
+                </p>
+
+                <button onclick="closeBookingModal()" class="rosegold-gradient-btn text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider mt-4">
+                    Close Window
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Mobile Menu Drawer Toggle
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobileDrawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+        // 2. Open & Close Booking Modal
+        function openBookingModal(serviceName = '', stylistName = '') {
+            const modal = document.getElementById('bookingModal');
+            const serviceSelect = document.getElementById('serviceSelect');
+            const stylistSelect = document.getElementById('stylistSelect');
+
+            if (serviceName && serviceSelect) {
+                for (let option of serviceSelect.options) {
+                    if (option.value.toLowerCase().includes(serviceName.toLowerCase()) || serviceName.toLowerCase().includes(option.value.toLowerCase())) {
+                        serviceSelect.value = option.value;
+                        break;
+                    }
+                }
+            }
+
+            if (stylistName && stylistSelect) {
+                stylistSelect.value = stylistName;
+            }
+
+            // Set Min Date to Today
+            const dateInput = document.getElementById('bookingDate');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+                if (!dateInput.value) {
+                    dateInput.value = today;
+                }
+            }
+
+            updateDynamicPrice();
+            modal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('hidden');
+            
+            setTimeout(() => {
+                document.getElementById('bookingForm').classList.remove('hidden');
+                document.getElementById('bookingSuccess').classList.add('hidden');
+                document.getElementById('bookingForm').reset();
+                document.getElementById('dynamicPriceDisplay').innerText = '₹0';
+            }, 300);
+        }
+
+        // 3. Dynamic Price Calculation
+        function updateDynamicPrice() {
+            const select = document.getElementById('serviceSelect');
+            const selectedOption = select.options[select.selectedIndex];
+            const price = selectedOption ? selectedOption.getAttribute('data-price') : 0;
+            const priceDisplay = document.getElementById('dynamicPriceDisplay');
+            
+            if (price) {
+                priceDisplay.innerText = '₹' + parseInt(price).toLocaleString('en-IN');
+            } else {
+                priceDisplay.innerText = '₹0';
+            }
+        }
+
+        // 4. Booking Form Submission
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('serviceSelect').value;
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+
+            // Generate Random Booking Reference ID
+            const randomId = 'LG-' + Math.floor(10000 + Math.random() * 90000);
+
+            document.getElementById('resRefId').innerText = randomId;
+            document.getElementById('resGuestName').innerText = name;
+            document.getElementById('resService').innerText = service;
+            document.getElementById('resDateTime').innerText = date + ' at ' + time;
+
+            document.getElementById('bookingForm').classList.add('hidden');
+            document.getElementById('bookingSuccess').classList.remove('hidden');
+        }
+
+        // 5. Service Category Filter
+        function filterServices(category) {
+            const cards = document.querySelectorAll('.service-card');
+            const buttons = document.querySelectorAll('.service-tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-rosegold', 'text-white');
+                btn.classList.add('bg-brand-pink', 'text-brand-plum');
+            });
+
+            event.target.classList.remove('bg-brand-pink', 'text-brand-plum');
+            event.target.classList.add('bg-brand-rosegold', 'text-white');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 6. Portfolio Gallery Filter
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-card');
+            const buttons = document.querySelectorAll('.gallery-tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-rosegold', 'text-white');
+                btn.classList.add('bg-white', 'text-brand-plum');
+            });
+
+            event.target.classList.remove('bg-white', 'text-brand-plum');
+            event.target.classList.add('bg-brand-rosegold', 'text-white');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // 7. Lightbox Zoom Modal
+        function openLightbox(imgUrl, caption) {
+            const modal = document.getElementById('lightboxModal');
+            document.getElementById('lightboxImage').src = imgUrl;
+            document.getElementById('lightboxCaption').innerText = caption;
+            modal.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+        }
+
+        // 8. Newsletter Handling
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('newsletterSuccess');
+            const emailInput = document.getElementById('newsletterEmail');
+            successMsg.classList.remove('hidden');
+            emailInput.value = '';
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 4000);
+        }
+
+        // 9. Navbar Scroll Styling
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md', 'py-1');
+            } else {
+                navbar.classList.remove('shadow-md', 'py-1');
+            }
+        });
+    </script>
+</body>
+</html>
